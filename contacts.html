@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Контакты — MOTORA автосалон</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="header__logo logo">
+          <svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true">
+            <path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" />
+          </svg>
+          <span>MOTORA</span>
+        </a>
+
+        <button
+          class="header__burger burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+
+        <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Главная</a>
+            </li>
+            <li class="nav__item">
+              <a href="catalog.html" class="nav__link">Каталог</a>
+            </li>
+            <li class="nav__item">
+              <a href="about.html" class="nav__link">О компании</a>
+            </li>
+            <li class="nav__item">
+              <a
+                href="contacts.html"
+                class="nav__link nav__link_active"
+                aria-current="page"
+              >
+                Контакты
+              </a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__fav" href="catalog.html" aria-label="Избранное">
+                <span aria-hidden="true">♥</span> <b id="fav-count">0</b>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="contacts.html#signup" class="button nav__signup">Регистрация</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container page-title">
+        <h1 class="heading heading_big">Контакты</h1>
+      </section>
+
+      <section class="section container contacts">
+        <div class="contacts__info">
+          <h2 class="about__sub">Как нас найти</h2>
+          <address class="contacts__address">
+            г. Москва, Кутузовский проспект, 45<br />
+            <a href="tel:+74950000000">+7 (495) 000-00-00</a><br />
+            <a href="mailto:info@motora.example">info@motora.example</a>
+          </address>
+          <ul class="list">
+            <li>Пн–Пт: 9:00–21:00</li>
+            <li>Сб–Вс: 10:00–19:00</li>
+          </ul>
+          <p class="open-status" id="open-status"></p>
+        </div>
+        <div class="contacts__map">
+          <iframe
+            class="map"
+            title="Карта: Кутузовский проспект, 45"
+            src="https://maps.google.com/maps?q=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%20%D0%9A%D1%83%D1%82%D1%83%D0%B7%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%2045&output=embed"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+
+      <section class="section container forms">
+        <form class="form" action="#" method="post" name="feedback">
+          <h2 class="about__sub">Обратная связь</h2>
+          <div class="form__field">
+            <label class="form__label" for="fb-name">
+              Имя <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="fb-name"
+              type="text"
+              name="name"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="fb-email">
+              Email <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="fb-email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="fb-subject">
+              Тема <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <select class="form__input" id="fb-subject" name="subject" required>
+              <option value="">Выберите тему</option>
+              <option>Тест-драйв</option>
+              <option>Трейд-ин</option>
+              <option>Кредит</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="fb-message">
+              Сообщение <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              class="form__input"
+              id="fb-message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <label class="form__check" for="fb-privacy">
+            <input id="fb-privacy" type="checkbox" name="privacy" required />
+            <span>
+              Согласен на обработку персональных данных (<a href="#">политика</a>)
+              <span class="form__req">*</span>
+            </span>
+          </label>
+          <button class="button" type="submit">Отправить</button>
+        </form>
+
+        <form class="form" action="#" method="post" name="register" id="signup">
+          <h2 class="about__sub">Регистрация</h2>
+          <div class="form__field">
+            <label class="form__label" for="rg-user">
+              Имя пользователя <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="rg-user"
+              type="text"
+              name="username"
+              required
+              minlength="3"
+              autocomplete="username"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="rg-email">
+              Email <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="rg-email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="rg-phone">
+              Телефон <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input 
+              class="form__input" 
+              id="rg-phone" 
+              type="tel" 
+              name="phone"
+              required minlength="10"
+              maxlength="18"
+              autocomplete="tel" 
+              inputmode="tel"
+              placeholder="+7 900 000-00-00"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="rg-pass">
+              Пароль (от 8 символов) <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="rg-pass"
+              type="password"
+              name="password"
+              required
+              minlength="8"
+              autocomplete="new-password"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="rg-pass2">
+              Повторите пароль <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="rg-pass2"
+              type="password"
+              name="password_confirm"
+              required
+              autocomplete="new-password"
+            />
+          </div>
+          <label class="form__check" for="rg-terms">
+            <input id="rg-terms" type="checkbox" name="terms" required />
+            <span>
+              Согласен на обработку персональных данных
+              <span class="form__req">*</span>
+            </span>
+          </label>
+          <label class="form__check" for="rg_privacy">
+            <input id="rg_privacy" type="checkbox" name="privacy" required>
+            <span>
+              Согласен с политикой обработки персональных данных
+              <span class="form__req">*</span>
+            </span>
+          </label>
+          <button class="button" type="submit">Зарегистрироваться</button>
+        </form>
+
+        <form class="form" action="#" method="post" name="login">
+          <h2 class="about__sub">Вход</h2>
+          <div class="form__field">
+            <label class="form__label" for="lg-email">
+              Email <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="lg-email"
+              type="email"
+              name="email"
+              required
+              autocomplete="username"
+            />
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="lg-pass">
+              Пароль <span class="form__req" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              id="lg-pass"
+              type="password"
+              name="password"
+              required
+              autocomplete="current-password"
+            />
+          </div>
+          <label class="form__check" for="lg-remember">
+            <input id="lg-remember" type="checkbox" name="remember" />
+            <span>Запомнить меня</span>
+          </label>
+          <button class="button" type="submit">Войти</button>
+        </form>
+      </section>
+    </main>
+
+    <section class="subscribe">
+      <div class="container">
+        <h2 class="subscribe__title">
+          Подпишитесь на новости салона и получайте спецпредложения
+        </h2>
+        <p class="subscribe__text">
+          Оставьте email — расскажем о новых поступлениях и акциях
+        </p>
+        <form class="subscribe__form" action="#" method="post" name="subscribe">
+          <label class="visually-hidden" for="sub-email">Email</label>
+          <input
+            class="subscribe__input"
+            id="sub-email"
+            type="email"
+            name="email"
+            placeholder="Введите ваш email"
+            required
+            autocomplete="email"
+          />
+          <button class="button" type="submit">Отправить</button>
+          <label class="subscribe__consent">
+            <input type="checkbox" name="privacy" required />
+            Согласен на обработку персональных данных
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">MOTORA</a>
+          <p class="footer__text">
+            Автомобили с пробегом и новые — с гарантией и честной историей.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Компания</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="#">Трейд-ин</a></li>
+            <li><a href="#">Автокредит</a></li>
+            <li><a href="#">Сервис</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Документы</h3>
+          <ul class="footer__list">
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная — MOTORA автосалон</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="header__logo logo">
+          <svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true">
+            <path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" />
+          </svg>
+          <span>MOTORA</span>
+        </a>
+
+        <button
+          class="header__burger burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+
+        <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link nav__link_active" aria-current="page">Главная</a>
+            </li>
+            <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+            <li class="nav__item"><a href="about.html" class="nav__link">О компании</a></li>
+            <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+            <li class="nav__item">
+              <a class="nav__fav" href="catalog.html" aria-label="Избранное">
+                <span aria-hidden="true">♥</span> <b id="fav-count">0</b>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="contacts.html#signup" class="button nav__signup">Регистрация</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container">
+        <div class="hero">
+          <div class="hero__text">
+            <h1 class="hero__title">
+              <span class="mark">Выбери</span><br />
+              свой<br />
+              <span class="mark mark_yellow">лучший</span><br />
+              авто.
+            </h1>
+            <p class="hero__lead">Новые и проверенные автомобили с гарантией!</p>
+            <a class="button" href="catalog.html">Смотреть каталог</a>
+          </div>
+          <img
+            class="hero__img"
+            src="https://unsplash.com/photos/K8fHiGWu1OE/download?w=900"
+            data-fallback="img/hero.svg"
+            onerror="this.onerror=null;this.src=this.dataset.fallback"
+            alt="Тёмно-синий седан"
+          />
+        </div>
+      </section>
+
+      <section class="brands" aria-label="Марки в наличии">
+        <div class="container">
+          <div class="brands__track">
+            <ul class="brands__list">
+              <li class="brands__item brands__item_0">Orion</li>
+              <li class="brands__item brands__item_1">TERRA</li>
+              <li class="brands__item brands__item_2">volt</li>
+              <li class="brands__item brands__item_3">AURA</li>
+              <li class="brands__item brands__item_4">NORD</li>
+              <li class="brands__item brands__item_5">Vega</li>
+            </ul>
+            <ul class="brands__list" aria-hidden="true">
+              <li class="brands__item brands__item_0">Orion</li>
+              <li class="brands__item brands__item_1">TERRA</li>
+              <li class="brands__item brands__item_2">volt</li>
+              <li class="brands__item brands__item_3">AURA</li>
+              <li class="brands__item brands__item_4">NORD</li>
+              <li class="brands__item brands__item_5">Vega</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container" id="new">
+        <h2 class="heading">Новые поступления</h2>
+        <div class="cards cards_cols_3">
+          <article class="card">
+            <a href="catalog.html#suvs" class="card__link">
+              <img
+                class="card__img"
+                src="https://unsplash.com/photos/RMLt7FsuPOo/download?w=900"
+                data-fallback="img/arr1.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Оранжевый кроссовер"
+                loading="lazy"
+              />
+              <div class="card__row">
+                <div>
+                  <h3 class="card__title">Кроссоверы</h3>
+                  <p class="card__sub">Смотреть модели</p>
+                </div>
+                <svg class="card__arrow" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true">
+                  <path d="M0 7h24M18 1l6 6-6 6" fill="none" stroke="#555" stroke-width="1.5" />
+                </svg>
+              </div>
+            </a>
+          </article>
+
+          <article class="card">
+            <a href="catalog.html#sedans" class="card__link">
+              <img
+                class="card__img"
+                src="https://unsplash.com/photos/HWUX9YGXPSY/download?w=900"
+                data-fallback="img/arr2.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Голубой седан"
+                loading="lazy"
+              />
+              <div class="card__row">
+                <div>
+                  <h3 class="card__title">Седаны</h3>
+                  <p class="card__sub">Смотреть модели</p>
+                </div>
+                <svg class="card__arrow" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true">
+                  <path d="M0 7h24M18 1l6 6-6 6" fill="none" stroke="#555" stroke-width="1.5" />
+                </svg>
+              </div>
+            </a>
+          </article>
+
+          <article class="card">
+            <a href="catalog.html#electric" class="card__link">
+              <img
+                class="card__img"
+                src="https://unsplash.com/photos/tJeVNRfJaq8/download?w=900"
+                data-fallback="img/arr3.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Белое электрокупе"
+                loading="lazy"
+              />
+              <div class="card__row">
+                <div>
+                  <h3 class="card__title">Гибриды и электро</h3>
+                  <p class="card__sub">Смотреть модели</p>
+                </div>
+                <svg class="card__arrow" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true">
+                  <path d="M0 7h24M18 1l6 6-6 6" fill="none" stroke="#555" stroke-width="1.5" />
+                </svg>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="promo">
+        <div class="container promo__grid">
+          <img
+            class="promo__img"
+            src="https://unsplash.com/photos/zL3Y4IejQR0/download?w=900"
+            data-fallback="img/promo.svg"
+            onerror="this.onerror=null;this.src=this.dataset.fallback"
+            alt="Чёрное купе"
+            loading="lazy"
+          />
+          <div class="promo__text">
+            <h2 class="promo__title">
+              <span class="mark">Трейд-ин</span><br />
+              выгода сейчас
+            </h2>
+            <p class="promo__lead">
+              Сдайте старый автомобиль и получите скидку до 300 000 ₽ на новый
+            </p>
+            <p class="promo__date">1 – 31 октября 2026</p>
+            <p class="countdown" id="countdown" data-end="2026-10-31T23:59:59+03:00">
+              До конца акции: …
+            </p>
+            <p class="promo__note">*Условия акции уточняйте у менеджеров</p>
+            <a class="button" href="contacts.html">Узнать больше</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section container">
+        <h2 class="heading">Выбор покупателей</h2>
+        <div class="cards cards_cols_2">
+          <article class="card card_wide">
+            <a href="catalog.html#suvs" class="card__link">
+              <img
+                class="card__img"
+                src="https://unsplash.com/photos/8LdEZ54GJBU/download?w=900"
+                data-fallback="img/fav1.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Красный кроссовер"
+                loading="lazy"
+              />
+              <div class="card__row">
+                <div>
+                  <h3 class="card__title">Популярные кроссоверы</h3>
+                  <p class="card__sub">Смотреть модели</p>
+                </div>
+                <svg class="card__arrow" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true">
+                  <path d="M0 7h24M18 1l6 6-6 6" fill="none" stroke="#555" stroke-width="1.5" />
+                </svg>
+              </div>
+            </a>
+          </article>
+
+          <article class="card card_wide">
+            <a href="catalog.html#sedans" class="card__link">
+              <img
+                class="card__img"
+                src="https://unsplash.com/photos/qsK2F_hppbs/download?w=900"
+                data-fallback="img/fav2.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Белое купе"
+                loading="lazy"
+              />
+              <div class="card__row">
+                <div>
+                  <h3 class="card__title">Автомобили до 3 млн ₽</h3>
+                  <p class="card__sub">Смотреть модели</p>
+                </div>
+                <svg class="card__arrow" width="26" height="14" viewBox="0 0 26 14" aria-hidden="true">
+                  <path d="M0 7h24M18 1l6 6-6 6" fill="none" stroke="#555" stroke-width="1.5" />
+                </svg>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="app container">
+        <div class="app__text">
+          <h2 class="app__title">Скачайте приложение и получите бонус!</h2>
+          <p class="app__lead">
+            Скидка 30% на первое сервисное обслуживание при заказе через мобильное приложение.
+          </p>
+          <div class="app__badges">
+            <a href="#" class="badge"><span>Загрузите в</span><b>App Store</b></a>
+            <a href="#" class="badge"><span>Доступно в</span><b>Google Play</b></a>
+          </div>
+        </div>
+        <div class="app__visual">
+          <div class="phone">
+            <p class="phone__title">Подберите авто</p>
+            <div class="phone__search">Поиск</div>
+            <div class="phone__chips">
+              <span class="phone__chip phone__chip_active">Популярные</span>
+              <span class="phone__chip">Все</span>
+              <span class="phone__chip">Новые</span>
+            </div>
+            <div class="phone__grid">
+              <img
+                src="https://unsplash.com/photos/51VXaDD0gz8/download?w=900"
+                data-fallback="img/sed2.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Седан Orion"
+              />
+              <img
+                src="https://unsplash.com/photos/8LdEZ54GJBU/download?w=900"
+                data-fallback="img/suv2.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Кроссовер Terra"
+              />
+              <img
+                src="https://unsplash.com/photos/qsK2F_hppbs/download?w=900"
+                data-fallback="img/ev1.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Электрокупе Volt"
+              />
+              <img
+                src="https://unsplash.com/photos/zL3Y4IejQR0/download?w=900"
+                data-fallback="img/ev3.svg"
+                onerror="this.onerror=null;this.src=this.dataset.fallback"
+                alt="Электрокроссовер Volt"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="subscribe">
+      <div class="container">
+        <h2 class="subscribe__title">
+          Подпишитесь на новости салона и получайте спецпредложения
+        </h2>
+        <p class="subscribe__text">Оставьте email — расскажем о новых поступлениях и акциях</p>
+        <form class="subscribe__form" action="#" method="post" name="subscribe">
+          <label class="visually-hidden" for="sub-email">Email</label>
+          <input
+            class="subscribe__input"
+            id="sub-email"
+            type="email"
+            name="email"
+            placeholder="Введите ваш email"
+            required
+            autocomplete="email"
+          />
+          <button class="button" type="submit">Отправить</button>
+          <label class="subscribe__consent">
+            <input type="checkbox" name="privacy" required />
+            Согласен на обработку персональных данных
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">MOTORA</a>
+          <p class="footer__text">
+            Автомобили с пробегом и новые — с гарантией и честной историей.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Компания</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="#">Трейд-ин</a></li>
+            <li><a href="#">Автокредит</a></li>
+            <li><a href="#">Сервис</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Документы</h3>
+          <ul class="footer__list">
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

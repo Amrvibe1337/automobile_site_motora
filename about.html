@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О компании — MOTORA автосалон</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="index.html" class="header__logo logo">
+          <svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true">
+            <path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" />
+          </svg>
+          <span>MOTORA</span>
+        </a>
+
+        <button
+          class="header__burger burger"
+          type="button"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="main-nav"
+        >
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+
+        <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Главная</a>
+            </li>
+            <li class="nav__item">
+              <a href="catalog.html" class="nav__link">Каталог</a>
+            </li>
+            <li class="nav__item">
+              <a
+                href="about.html"
+                class="nav__link nav__link_active"
+                aria-current="page"
+              >
+                О компании
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="contacts.html" class="nav__link">Контакты</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__fav" href="catalog.html" aria-label="Избранное">
+                <span aria-hidden="true">♥</span> <b id="fav-count">0</b>
+              </a>
+            </li>
+            <li class="nav__item">
+              <a href="contacts.html#signup" class="button nav__signup">Регистрация</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container page-title">
+        <h1 class="heading heading_big">О компании</h1>
+      </section>
+
+      <section class="section container">
+        <ul class="stats">
+          <li class="stats__item">
+            <span class="stats__num" data-count="16">0</span>
+            <span class="stats__label">лет на рынке</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__num" data-count="12400">0</span>
+            <span class="stats__label">проданных авто</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__num" data-count="120">0</span>
+            <span class="stats__label">пунктов проверки</span>
+          </li>
+          <li class="stats__item">
+            <span class="stats__num" data-count="98">0</span>
+            <span class="stats__label">% довольных клиентов</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="container about">
+        <div class="about__col">
+          <h2 class="about__title">MOTORA — автосалон с 2008 года</h2>
+          <p>
+            Мы продаём новые автомобили и машины с пробегом, прошедшие проверку по 120
+            пунктам. Каждый клиент получает полную историю автомобиля и гарантию.
+          </p>
+          <h3 class="about__sub">Почему выбирают нас</h3>
+          <ul class="list">
+            <li>Гарантия на каждый автомобиль до 3 лет</li>
+            <li>Трейд-ин и автокредит в одном месте</li>
+            <li>Собственный сервисный центр</li>
+            <li>Честная история: пробег, ДТП, обслуживание</li>
+          </ul>
+        </div>
+        <div class="about__col">
+          <h3 class="about__sub">Как купить автомобиль</h3>
+          <ol class="list list_numbered">
+            <li>Выберите модель в каталоге</li>
+            <li>Оставьте заявку или приезжайте в салон</li>
+            <li>Пройдите тест-драйв</li>
+            <li>Оформите договор и получите ключи</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section container faq">
+        <h2 class="heading">Частые вопросы</h2>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__q">
+              Есть ли гарантия на автомобили с пробегом?
+            </summary>
+            <p class="faq__a">
+              Да, до 3 лет в зависимости от возраста и пробега автомобиля.
+            </p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">
+              Можно ли сдать старый автомобиль в трейд-ин?
+            </summary>
+            <p class="faq__a">
+              Да. Оценка занимает около 30 минут, сумма сразу идёт в зачёт покупки.
+            </p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Как оформить автокредит?</summary>
+            <p class="faq__a">
+              Рассчитайте платёж в калькуляторе на странице «Каталог» и подайте заявку
+              в салоне или через форму обратной связи.
+            </p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Можно ли пройти тест-драйв?</summary>
+            <p class="faq__a">
+              Да, запишитесь через форму на странице «Контакты» — подберём удобное
+              время.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <section class="subscribe">
+      <div class="container">
+        <h2 class="subscribe__title">
+          Подпишитесь на новости салона и получайте спецпредложения
+        </h2>
+        <p class="subscribe__text">
+          Оставьте email — расскажем о новых поступлениях и акциях
+        </p>
+        <form class="subscribe__form" action="#" method="post" name="subscribe">
+          <label class="visually-hidden" for="sub-email">Email</label>
+          <input
+            class="subscribe__input"
+            id="sub-email"
+            type="email"
+            name="email"
+            placeholder="Введите ваш email"
+            required
+            autocomplete="email"
+          />
+          <button class="button" type="submit">Отправить</button>
+          <label class="subscribe__consent">
+            <input type="checkbox" name="privacy" required />
+            Согласен на обработку персональных данных
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__about">
+          <a href="index.html" class="logo footer__logo">MOTORA</a>
+          <p class="footer__text">
+            Автомобили с пробегом и новые — с гарантией и честной историей.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Компания</h3>
+          <ul class="footer__list">
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="contacts.html">Контакты</a></li>
+            <li><a href="catalog.html">Каталог</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Услуги</h3>
+          <ul class="footer__list">
+            <li><a href="#">Трейд-ин</a></li>
+            <li><a href="#">Автокредит</a></li>
+            <li><a href="#">Сервис</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h3 class="footer__title">Документы</h3>
+          <ul class="footer__list">
+            <li><a href="#">Условия использования</a></li>
+            <li><a href="#">Политика конфиденциальности</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
