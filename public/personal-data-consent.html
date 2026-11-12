@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Документы MOTORA об обработке персональных данных." />
+  <title>Согласие на обработку персональных данных — MOTORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo logo">
+        <svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true"><path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" /></svg>
+        <span>MOTORA</span>
+      </a>
+      <button class="header__burger burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+        <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
+      </button>
+      <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+          <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+          <li class="nav__item"><a href="about.html" class="nav__link">О компании</a></li>
+          <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+          <li class="nav__item"><a class="nav__cart" href="cart.html" aria-label="Корзина"><span aria-hidden="true">🛒</span> <b id="cart-count">0</b></a></li>
+          <li class="nav__item"><a href="contacts.html#signup" class="button nav__signup">Регистрация</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="container page-title">
+      <h1 class="heading heading_big">Согласие на обработку персональных данных</h1>
+      <p class="legal-meta"><strong>Дата последнего изменения:</strong> 11 ноября 2026 года · Редакция 1.1</p>
+      <div class="legal-downloads"><a class="button button_light" href="personal-data-consent.txt" download>Скачать согласие в TXT</a></div>
+    </section>
+    <section class="section container legal-content">
+
+      <section class="legal-section">
+        <h2>1. Кто получает согласие</h2>
+        <p>Согласие запрашивается в пользу оператора, обозначенного в учебном проекте как автосалон MOTORA. Демонстрационные контакты: г. Москва, Кутузовский проспект, 45; +7 (495) 000-00-00; <a href="mailto:info@motora.example">info@motora.example</a>. При реальном использовании это обозначение необходимо заменить полным наименованием оператора и действительными реквизитами.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>2. На что даётся согласие</h2>
+        <p>Отмечая отдельный чекбокс «Даю согласие на обработку персональных данных» и отправляя соответствующую форму, пользователь свободно, своей волей и в своём интересе выражает согласие на обработку тех персональных данных, которые он указывает в этой форме, для её конкретной цели:</p>
+        <ul>
+          <li>в форме обратной связи — для регистрации, рассмотрения и ответа на обращение;</li>
+          <li>в форме заявки на автомобиль или тест-драйв — для обработки заявки и связи с пользователем по указанному вопросу;</li>
+          <li>в форме регистрации — для создания учётной записи, авторизации и предоставления функций личного кабинета;</li>
+          <li>при оформлении заказа — для обработки заявки на покупку выбранных автомобилей и связи с пользователем по указанному телефону.</li>
+        </ul>
+        <p>Согласие не означает согласия на рекламную рассылку. Для рекламных сообщений требуется отдельное волеизъявление пользователя и отдельное основание обработки.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>3. Перечень персональных данных</h2>
+        <p>В зависимости от выбранной формы могут обрабатываться: имя или имя пользователя, адрес электронной почты, номер телефона, тема и текст обращения, выбранная модель автомобиля, комментарий к заказу, состав и стоимость заказа, а также данные учётной записи, необходимые для регистрации. Пароль передаётся серверу для создания учётной записи и сохраняется в виде криптографического хэша, а не в открытом виде.</p>
+        <p>Пользователь обязуется не указывать в формах данные третьих лиц без законного основания и не включать в сообщения специальные категории персональных данных, которые не требуются для обращения.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>4. Действия и способы обработки</h2>
+        <p>Согласие распространяется на сбор, запись, систематизацию, накопление, хранение, уточнение, использование для ответа на запрос, предоставление доступа уполномоченным лицам, блокирование, удаление и уничтожение персональных данных.</p>
+        <p>Обработка в рамках сайта MOTORA осуществляется с использованием средств автоматизации. Данные обращений, учётных записей и заказов сохраняются в базе MongoDB серверного приложения. Сроки хранения определяются целями обработки и требованиями применимого законодательства.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>5. Срок действия и отзыв согласия</h2>
+        <p>Согласие действует до достижения соответствующей цели обработки либо до его отзыва, если дальнейшая обработка не может осуществляться на ином законном основании. Согласие может быть отозвано путём направления заявления на адрес <a href="mailto:info@motora.example">info@motora.example</a>.</p>
+        <p>После получения отзыва оператор прекращает обработку и уничтожает данные в сроки и порядке, установленные законодательством, если сохранение данных не требуется на ином законном основании. Отзыв согласия не делает незаконной обработку, которая была осуществлена до его получения.</p>
+      </section>
+
+      <section class="legal-section">
+        <h2>6. Подтверждение пользователя</h2>
+        <p>Отправляя форму с установленным чекбоксом согласия, пользователь подтверждает, что:</p>
+        <ul>
+          <li>ознакомился с <a href="personal-data-policy.html">Политикой обработки персональных данных</a>;</li>
+          <li>понимает цели и перечень данных, обрабатываемых в выбранной форме;</li>
+          <li>предоставляет согласие отдельно от подтверждения ознакомления с Политикой;</li>
+          <li>может отозвать согласие способом, указанным выше.</li>
+        </ul>
+        <p>Согласие запрашивается отдельным чекбоксом и не объединяется с подтверждением ознакомления с Политикой. В учебной версии факт отправки формы и принятия чекбоксов проверяется сервером; перед реальным запуском необходимо обеспечить надёжное хранение доказательств согласия с указанием версии документа и времени его принятия.</p>
+      </section>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__about">
+        <a href="index.html" class="logo footer__logo">MOTORA</a>
+        <p class="footer__text">Автомобили с пробегом и новые — с гарантией и честной историей.</p>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Компания</h3>
+        <ul class="footer__list"><li><a href="about.html">О компании</a></li><li><a href="contacts.html">Контакты</a></li><li><a href="catalog.html">Каталог</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h3 class="footer__title">Документы</h3>
+        <ul class="footer__list">
+          <li><a href="personal-data-policy.html">Политика обработки персональных данных</a></li>
+          <li><a href="personal-data-consent.html">Согласие на обработку персональных данных</a></li>
+          <li><a href="cookie-policy.html">Политика cookies</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+</body>
+</html>

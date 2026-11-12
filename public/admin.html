@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Админ-панель — MOTORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo logo"><svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true"><path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" /></svg><span>MOTORA</span></a>
+      <button class="header__burger burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+      <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация"><ul class="nav__list">
+        <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+        <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link">О компании</a></li>
+        <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+        <li class="nav__item"><a class="nav__cart" href="cart.html" aria-label="Корзина"><span aria-hidden="true">🛒</span> <b id="cart-count">0</b></a></li>
+        <li class="nav__item"><a href="profile.html" class="button nav__signup">Личный кабинет</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container page-title"><h1 class="heading heading_big">Админ-панель</h1><p class="page-title__text">Управление каталогом, пользователями и обращениями клиентов.</p></section>
+    <section class="section container">
+      <div class="admin-stats" id="admin-stats"><p class="account-panel">Загрузка статистики…</p></div>
+    </section>
+
+    <section class="section container admin-layout">
+      <article class="account-panel">
+        <h2 class="heading">Добавить / редактировать автомобиль</h2>
+        <form id="product-form" class="form form_inner" novalidate>
+          <input type="hidden" name="id" id="product-id" />
+          <div class="form__field"><label class="form__label" for="product-name">Название</label><input class="form__input" id="product-name" name="name" required minlength="2" maxlength="100" /></div>
+          <div class="form__field"><label class="form__label" for="product-category">Категория</label><select class="form__input" id="product-category" name="categorySlug" required><option value="">Загрузка категорий…</option></select></div>
+          <div class="form__field"><label class="form__label" for="product-price">Цена, ₽</label><input class="form__input" id="product-price" name="price" type="number" min="1" required /></div>
+          <div class="form__field"><label class="form__label" for="product-engine">Двигатель</label><input class="form__input" id="product-engine" name="engine" /></div>
+          <div class="form__field"><label class="form__label" for="product-power">Мощность</label><input class="form__input" id="product-power" name="power" /></div>
+          <div class="form__field"><label class="form__label" for="product-acceleration">0–100 км/ч</label><input class="form__input" id="product-acceleration" name="acceleration" /></div>
+          <div class="form__field"><label class="form__label" for="product-image">Путь к локальному изображению</label><input class="form__input" id="product-image" name="image" type="text" placeholder="/img/cars/aura-rs-v8.webp" pattern="/img/cars/[a-z0-9-]+\.(webp|svg|jpg|jpeg|png)" /><small class="form__hint">Файл должен находиться в public/img/cars/. Внешние URL не принимаются.</small></div>
+          <div class="form__field"><label class="form__label" for="product-description">Описание</label><textarea class="form__input" id="product-description" name="description" rows="3"></textarea></div>
+          <div class="inline-actions"><button class="button" type="submit" id="product-save">Сохранить автомобиль</button><button class="button button_light" type="button" id="product-cancel">Очистить</button></div>
+          <p class="form__status" id="product-status" role="status"></p>
+        </form>
+      </article>
+
+      <article class="account-panel admin-wide">
+        <div class="admin-heading-row"><h2 class="heading">Каталог автомобилей</h2><div class="admin-sort"><label for="admin-sort">Сортировка</label><select id="admin-sort" class="form__input"><option value="createdAt:desc">Сначала новые</option><option value="name:asc">По названию А–Я</option><option value="price:asc">Сначала дешевле</option><option value="price:desc">Сначала дороже</option></select></div></div>
+        <div class="table-wrap"><table class="table admin-table"><thead><tr><th>Автомобиль</th><th>Категория</th><th>Цена</th><th>Действия</th></tr></thead><tbody id="admin-products"><tr><td colspan="4">Загрузка…</td></tr></tbody></table></div>
+      </article>
+
+      <article class="account-panel admin-wide"><h2 class="heading">Пользователи</h2><div class="table-wrap"><table class="table admin-table"><thead><tr><th>Имя</th><th>Email</th><th>Роль</th><th>Статус</th><th>Действия</th></tr></thead><tbody id="admin-users"><tr><td colspan="5">Загрузка…</td></tr></tbody></table></div></article>
+      <article class="account-panel admin-wide"><h2 class="heading">Модерация обращений</h2><div id="admin-feedback" class="data-list"><p>Загрузка…</p></div></article>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer__grid"><div class="footer__about"><a href="index.html" class="logo footer__logo">MOTORA</a><p class="footer__text">Панель управления автосалоном MOTORA.</p></div>        <div class="footer__col">
+          <h3 class="footer__title">Документы</h3>
+          <ul class="footer__list">
+          <li><a href="personal-data-policy.html">Политика обработки персональных данных</a></li>
+          <li><a href="personal-data-consent.html">Согласие на обработку персональных данных</a></li>
+          <li><a href="cookie-policy.html">Политика cookies</a></li>
+        </ul>
+        </div></div></footer>
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

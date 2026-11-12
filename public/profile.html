@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный кабинет — MOTORA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&family=Poppins:wght@300;400;500;600;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo logo"><svg width="26" height="20" viewBox="0 0 26 20" aria-hidden="true"><path d="M0 0h26L21 6H5zM5 8h16l-4 5H9zM10 15h6l-3 5z" /></svg><span>MOTORA</span></a>
+      <button class="header__burger burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav"><span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span></button>
+      <nav class="header__nav nav" id="main-nav" aria-label="Основная навигация"><ul class="nav__list">
+        <li class="nav__item"><a href="index.html" class="nav__link">Главная</a></li>
+        <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+        <li class="nav__item"><a href="about.html" class="nav__link">О компании</a></li>
+        <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
+        <li class="nav__item"><a class="nav__cart" href="cart.html" aria-label="Корзина"><span aria-hidden="true">🛒</span> <b id="cart-count">0</b></a></li>
+        <li class="nav__item"><a href="profile.html" class="button nav__signup">Личный кабинет</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="container page-title">
+      <h1 class="heading heading_big">Личный кабинет</h1>
+      <p class="page-title__text" id="profile-greeting">Управляйте профилем, заказами и историей взаимодействия с MOTORA.</p>
+    </section>
+
+    <section class="section container account-shell">
+      <aside class="account-sidebar">
+        <h2 class="account-sidebar__title">Разделы кабинета</h2>
+        <nav class="account-sidebar__nav" aria-label="Разделы личного кабинета">
+          <a href="#account-overview">Обзор</a>
+          <a href="#account-profile">Мой профиль</a>
+          <a href="#account-security">Безопасность</a>
+          <a href="#account-orders">Мои заказы</a>
+          <a href="#account-viewed">Просмотренные автомобили</a>
+          <a href="#account-searches">История поиска</a>
+          <a href="#account-feedback">Мои обращения</a>
+          <a href="#account-actions">Журнал действий</a>
+          <a href="cart.html">Перейти в корзину</a>
+        </nav>
+      </aside>
+
+      <div class="account-content">
+        <section class="account-section" id="account-overview">
+          <div class="account-section__heading"><h2 class="heading">Обзор</h2><a class="text-link" href="catalog.html">Перейти в каталог</a></div>
+          <div class="account-summary">
+            <article class="account-summary__card"><span>Заказы</span><strong id="summary-orders">0</strong></article>
+            <article class="account-summary__card"><span>Обращения</span><strong id="summary-feedback">0</strong></article>
+            <article class="account-summary__card"><span>Просмотры</span><strong id="summary-viewed">0</strong></article>
+            <article class="account-summary__card"><span>Товаров в корзине</span><strong id="summary-cart">0</strong></article>
+          </div>
+        </section>
+
+        <section class="account-section account-panel" id="account-profile">
+          <h2 class="about__sub">Мой профиль</h2>
+          <p class="muted-note">Здесь можно изменить имя и адрес электронной почты.</p>
+          <form id="profile-form" class="form form_inner">
+            <div class="form__field"><label class="form__label" for="profile-name">Имя</label><input class="form__input" id="profile-name" name="name" required minlength="2" maxlength="60" autocomplete="name" /></div>
+            <div class="form__field"><label class="form__label" for="profile-email">Email</label><input class="form__input" id="profile-email" name="email" type="email" required autocomplete="email" /></div>
+            <button class="button" type="submit">Сохранить изменения</button>
+            <p class="form__status" id="profile-status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="account-section account-panel" id="account-security">
+          <h2 class="about__sub">Безопасность и пароль</h2>
+          <form id="password-form" class="form form_inner">
+            <div class="form__field"><label class="form__label" for="current-password">Текущий пароль</label><input class="form__input" id="current-password" name="currentPassword" type="password" required autocomplete="current-password" /></div>
+            <div class="form__field"><label class="form__label" for="new-password">Новый пароль (от 8 символов)</label><input class="form__input" id="new-password" name="newPassword" type="password" required minlength="8" maxlength="72" autocomplete="new-password" /></div>
+            <div class="form__field"><label class="form__label" for="new-password-confirm">Повторите новый пароль</label><input class="form__input" id="new-password-confirm" type="password" required minlength="8" maxlength="72" autocomplete="new-password" /></div>
+            <button class="button" type="submit">Изменить пароль</button>
+            <p class="form__status" id="password-status" role="status"></p>
+          </form>
+        </section>
+
+        <section class="account-section account-panel" id="account-orders">
+          <div class="account-section__heading"><h2 class="about__sub">Мои заказы</h2><a class="text-link" href="cart.html">Открыть корзину</a></div>
+          <div id="account-orders-list" class="data-list"><p>Загрузка…</p></div>
+        </section>
+
+        <section class="account-section account-panel" id="account-viewed">
+          <h2 class="about__sub">Просмотренные автомобили</h2>
+          <div id="account-viewed-list" class="data-list"><p>Загрузка…</p></div>
+        </section>
+
+        <section class="account-section account-panel" id="account-searches">
+          <h2 class="about__sub">История поиска</h2>
+          <p class="muted-note">Показываются только пять последних уникальных поисковых запросов.</p>
+          <div id="account-searches-list" class="data-list"><p>Загрузка…</p></div>
+        </section>
+
+        <section class="account-section account-panel" id="account-feedback">
+          <h2 class="about__sub">Мои обращения</h2>
+          <div id="account-feedback-list" class="data-list"><p>Загрузка…</p></div>
+        </section>
+
+        <section class="account-section account-panel" id="account-actions">
+          <h2 class="about__sub">Журнал действий</h2>
+          <div id="account-actions-list" class="data-list"><p>Загрузка…</p></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container footer__grid">
+    <div class="footer__about"><a href="index.html" class="logo footer__logo">MOTORA</a><p class="footer__text">Автомобили с пробегом и новые — с гарантией и честной историей.</p></div>
+    <div class="footer__col"><h3 class="footer__title">Компания</h3><ul class="footer__list"><li><a href="about.html">О компании</a></li><li><a href="contacts.html">Контакты</a></li><li><a href="catalog.html">Каталог</a></li></ul></div>
+    <div class="footer__col"><h3 class="footer__title">Документы</h3><ul class="footer__list">
+          <li><a href="personal-data-policy.html">Политика обработки персональных данных</a></li>
+          <li><a href="personal-data-consent.html">Согласие на обработку персональных данных</a></li>
+          <li><a href="cookie-policy.html">Политика cookies</a></li>
+        </ul></div>
+  </div></footer>
+  <script src="js/main.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/account.js"></script>
+</body>
+</html>
