@@ -11,14 +11,19 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const isProduction = process.env.NODE_ENV === 'production';
 
+if (!process.env.SESSION_SECRET) {
+  throw new Error('SESSION_SECRET не задан!');
+}
+
 app.disable('x-powered-by');
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json({ limit: '100kb' }));
 app.use(express.urlencoded({ extended: true, limit: '100kb' }));
 
+app.set('trust proxy', 1);
 app.use(session({
   name: 'motora.sid',
-  secret: process.env.SESSION_SECRET || 'local-motora-session-secret-change-me',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   store: MongoStore.create({
@@ -56,7 +61,7 @@ app.use((err, req, res, next) => {
 });
 
 connectDB()
-  .then(() => app.listen(PORT, () => console.log(`MOTORA доступен: http://localhost:${PORT}`)))
+  .then(() => app.listen(PORT, '0.0.0.0', () => console.log(`MOTORA running on port ${PORT}`)))
   .catch(error => {
     console.error('Не удалось запустить сервер:', error.message);
     process.exit(1);

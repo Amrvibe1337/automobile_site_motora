@@ -1,0 +1,9 @@
+meta:
+  environment: node
+  toolchain:
+    name: npm
+    version: 26
+
+run:
+  command: npm start
+  containerPort: 3000
