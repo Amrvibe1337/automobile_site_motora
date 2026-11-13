@@ -137,13 +137,12 @@
   if (catalogRoot) {
     const search = $('#search');
     const sort = $('#sort');
-    const chips = $$('.toolbar .chip');
+    const categoryFilters = $('#category-filters');
     let category = 'all';
     let searchTimer = null;
     let searchHistoryTimer = null;
 
     function productCard(product) {
-      const categoryName = product.category?.name || product.categorySlug;
       const image = product.image || '/img/cars/car-placeholder.svg';
       return `<article class="product"
         data-id="${escapeHtml(product._id)}"
@@ -173,7 +172,7 @@
         if (empty) { empty.hidden = false; empty.textContent = 'Введите не менее двух символов для поиска.'; }
         catalogRoot.innerHTML = '';
         const comparison = $('#catalog-comparison-body');
-        if (comparison) comparison.innerHTML = '';
+        if (comparison) comparison.innerHTML = '<tr><td colspan="6">Уточните поисковый запрос.</td></tr>';
         return;
       }
       const params = new URLSearchParams({
@@ -204,7 +203,39 @@
         await loadCart();
       } catch (error) {
         const count = $('#count');
-        if (count) count.textContent = error.message;
+        const empty = $('#empty');
+        if (count) count.textContent = 'Не удалось загрузить каталог.';
+        catalogRoot.innerHTML = '';
+        if (empty) {
+          empty.hidden = false;
+          empty.textContent = `Ошибка загрузки автомобилей: ${error.message}`;
+        }
+        const comparison = $('#catalog-comparison-body');
+        if (comparison) comparison.innerHTML = '<tr><td colspan="6">Не удалось загрузить данные.</td></tr>';
+      }
+    }
+
+    async function loadCategories() {
+      if (!categoryFilters) return;
+      try {
+        const categories = await request('/api/products/categories');
+        const buttons = [
+          '<button class="chip" type="button" data-cat="all" aria-pressed="true">Все</button>',
+          ...categories.map(item => `<button class="chip" type="button" data-cat="${escapeHtml(item.slug)}" aria-pressed="false">${escapeHtml(item.name)}</button>`)
+        ];
+        categoryFilters.innerHTML = buttons.join('');
+
+        const requestedCategory = decodeURIComponent(window.location.hash.slice(1));
+        if (requestedCategory && categories.some(item => item.slug === requestedCategory)) {
+          category = requestedCategory;
+          const selected = $(`.chip[data-cat="${CSS.escape(category)}"]`, categoryFilters);
+          if (selected) selected.setAttribute('aria-pressed', 'true');
+          const allButton = $('.chip[data-cat="all"]', categoryFilters);
+          if (allButton) allButton.setAttribute('aria-pressed', 'false');
+        }
+      } catch (error) {
+        categoryFilters.innerHTML = '<span class="muted-note">Не удалось загрузить категории. Можно просмотреть все автомобили.</span>';
+        console.warn('Не удалось загрузить категории:', error.message);
       }
     }
 
@@ -214,7 +245,7 @@
       event.preventDefault();
       event.stopImmediatePropagation();
       category = chip.dataset.cat || 'all';
-      chips.forEach(item => item.setAttribute('aria-pressed', String(item === chip)));
+      $$('.toolbar .chip').forEach(item => item.setAttribute('aria-pressed', String(item === chip)));
       loadCatalog();
     }, true);
 
@@ -256,12 +287,23 @@
       $('#d-engine').textContent = card.dataset.engine;
       $('#d-power').textContent = card.dataset.power;
       $('#d-acc').textContent = card.dataset.acc;
-      $('#d-description').textContent = card.dataset.description?.trim() || 'Описание пока не добавлено.';
+      const description = $('#d-description');
+      if (description) description.textContent = card.dataset.description || 'Описание пока не добавлено.';
       $('#d-model').value = card.dataset.name;
       dialog.showModal();
     });
 
-    loadCatalog();
+    document.addEventListener('click', event => {
+      if (!event.target.closest('#car-dialog [data-close]')) return;
+      $('#car-dialog')?.close();
+    });
+
+    const carDialog = $('#car-dialog');
+    carDialog?.addEventListener('click', event => {
+      if (event.target === carDialog) carDialog.close();
+    });
+
+    loadCategories().finally(() => loadCatalog());
   }
 
   // Корзина хранится в серверной сессии MongoDB, а заказ записывается в коллекцию orders.

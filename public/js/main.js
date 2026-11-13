@@ -124,125 +124,28 @@ if (heroSlider) {
   startAutoplay();
 }
 
-/* каталог: фильтр, поиск, сортировка */
-const products = $$('.product');
+/* Кредитный калькулятор каталога. Не зависит от статичных карточек: каталог загружается через API. */
+const cp = $('#c-price');
+const cDown = $('#c-down');
+const cTerm = $('#c-term');
 
-if (products.length) {
-  let cat = 'all';
-
-  const q = $('#search');
-  const sort = $('#sort');
-  const chips = $$('.chip');
-
-  function apply() {
-    const text = q.value.trim().toLowerCase();
-    let shown = 0;
-
-    products.forEach((p) => {
-      const ok =
-        (cat === 'all' || p.dataset.cat === cat) &&
-        p.dataset.name.toLowerCase().includes(text);
-
-      p.hidden = !ok;
-      shown += ok;
-    });
-
-    $$('.products').forEach((g) => {
-      const items = [...g.children];
-
-      if (sort.value !== 'default') {
-        items.sort(
-          (a, b) =>
-            (a.dataset.price - b.dataset.price) *
-            (sort.value === 'asc' ? 1 : -1)
-        );
-      } else {
-        items.sort(
-          (a, b) => products.indexOf(a) - products.indexOf(b)
-        );
-      }
-
-      items.forEach((i) => g.appendChild(i));
-    });
-
-    $$('.catalog__section').forEach(
-      (s) => (s.hidden = !$$('.product:not([hidden])', s).length)
-    );
-
-    $('#empty').hidden = shown > 0;
-    $('#count').textContent = 'Найдено моделей: ' + shown;
-  }
-
-  chips.forEach((c) =>
-    c.addEventListener('click', () => {
-      cat = c.dataset.cat;
-      chips.forEach((x) =>
-        x.setAttribute('aria-pressed', String(x === c))
-      );
-      apply();
-    })
-  );
-
-  q.addEventListener('input', apply);
-  sort.addEventListener('change', apply);
-
-  if (location.hash) {
-    const c = chips.find((x) => '#' + x.dataset.cat === location.hash);
-
-    if (c) c.click();
-    else apply();
-  } else {
-    apply();
-  }
-
-  /* окно «Подробнее» */
-  const dlg = $('#car-dialog');
-
-  $$('[data-open]').forEach((b) =>
-    b.addEventListener('click', () => {
-      const p = b.closest('.product');
-      const img = $('.product__img', p);
-
-      $('#d-img').src = img.currentSrc || img.src;
-      $('#d-img').alt = img.alt;
-      $('#d-title').textContent = p.dataset.name;
-      $('#d-price').textContent = fmt(p.dataset.price) + ' ₽';
-      $('#d-engine').textContent = p.dataset.engine;
-      $('#d-power').textContent = p.dataset.power;
-      $('#d-acc').textContent = p.dataset.acc;
-      $('#d-model').value = p.dataset.name;
-
-      dlg.showModal();
-    })
-  );
-
-  $('[data-close]', dlg).addEventListener('click', () => dlg.close());
-
-  dlg.addEventListener('click', (e) => {
-    if (e.target === dlg) dlg.close();
-  });
-
-  /* калькулятор */
-  const cp = $('#c-price');
-  const cd = $('#c-down');
-  const ct = $('#c-term');
-
+if (cp && cDown && cTerm) {
   function calc() {
-    const price = +cp.value;
-    const down = +cd.value;
-    const n = +ct.value;
-    const r = 0.12 / 12;
-    const P = price * (1 - down / 100);
+    const price = Number(cp.value);
+    const down = Number(cDown.value);
+    const months = Number(cTerm.value);
+    const monthlyRate = 0.12 / 12;
+    const principal = price * (1 - down / 100);
 
     $('#o-price').textContent = fmt(price) + ' ₽';
-    $('#o-down').textContent =
-      down + '% (' + fmt((price * down) / 100) + ' ₽)';
-    $('#o-term').textContent = n + ' мес.';
-    $('#o-pay').textContent =
-      fmt((P * r) / (1 - Math.pow(1 + r, -n))) + ' ₽';
+    $('#o-down').textContent = down + '% (' + fmt((price * down) / 100) + ' ₽)';
+    $('#o-term').textContent = months + ' мес.';
+    $('#o-pay').textContent = fmt(
+      (principal * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -months))
+    ) + ' ₽';
   }
 
-  [cp, cd, ct].forEach((i) => i.addEventListener('input', calc));
+  [cp, cDown, cTerm].forEach(input => input.addEventListener('input', calc));
   calc();
 }
 
