@@ -6,21 +6,21 @@ const connectDB = require('../config/db');
 const Product = require('../models/Product');
 
 const IMAGE_BY_NAME = {
-  'Orion 1.6 Comfort': '/img/cars/orion-1-6-comfort.webp',
-  'Orion 2.0 Business': '/img/cars/orion-2-0-business.webp',
-  'Orion E Sport': '/img/cars/orion-e-sport.webp',
-  'Terra X3': '/img/cars/terra-x3.webp',
-  'Terra X5': '/img/cars/terra-x5.webp',
-  'Terra X7 Hybrid': '/img/cars/terra-x7-hybrid.webp',
-  'Aura GT 2.0': '/img/cars/aura-gt-2-0.webp',
-  'Aura GT 3.0': '/img/cars/aura-gt-3-0.webp',
-  'Aura RS V8': '/img/cars/aura-rs-v8.webp',
-  'Vega City 1.4': '/img/cars/vega-city-1-4.webp',
-  'Vega Urban 1.6': '/img/cars/vega-urban-1-6.webp',
-  'Vega Sport 2.0': '/img/cars/vega-sport-2-0.webp',
-  'Volt E1': '/img/cars/volt-e1.webp',
-  'Volt H2 Hybrid': '/img/cars/volt-h2-hybrid.webp',
-  'Volt E3 AWD': '/img/cars/volt-e3-awd.webp'
+  'Rolls-Royce Phantom': '/img/cars/rolls.jpg',
+  'Mercedes-Maybach S 680': '/img/cars/maybach.jpg',
+  'Aurus Senat': '/img/cars/aurus.jpg',
+  'BMW X6': '/img/cars/bmw.jpg',
+  'Mercedes-Benz GLE': '/img/cars/mercgle.jpg',
+  'Porsche Cayenne': '/img/cars/porshecayenne.jpg',
+  'Bentley Continental GT': '/img/cars/bentley.jpg',
+  'Audi A5': '/img/cars/audia5.jpg',
+  'BMW M4': '/img/cars/bmwcoupe.jpg',
+  'MINI Cooper S': '/img/cars/minicooper.jpg',
+  'Mercedes-AMG A35 4MATIC': '/img/cars/merc-a-class.jpg',
+  'Audi RS 3': '/img/cars/audirs3.jpg',
+  'Zeekr 001': '/img/cars/zeekr.jpg',
+  'Tesla Model X': '/img/cars/teslaX.jpg',
+  'Lixiang L9': '/img/cars/lixiangL9.jpg'
 };
 
 function assertLocalAssetsExist() {
