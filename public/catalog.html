@@ -207,7 +207,8 @@
               <h3>Описание автомобиля</h3>
               <p id="d-description">Описание загружается из базы данных.</p>
             </div>
-            <form class="form dialog__form" action="#" method="post" name="request">
+            <form class="form dialog__form" action="#" method="post" name="request" data-api="vehicle-request">
+              <input type="hidden" name="productId" id="d-product-id" />
               <input type="hidden" name="model" id="d-model" />
               <div class="form__field">
                 <label class="form__label" for="rq-name">
@@ -236,6 +237,10 @@
                   minlength="10"
                   placeholder="+7 900 000-00-00"
                 />
+              </div>
+              <div class="form__field">
+                <label class="form__label" for="rq-message">Комментарий (необязательно)</label>
+                <textarea class="form__input" id="rq-message" name="message" rows="3" maxlength="1500" placeholder="Например, удобное время для звонка"></textarea>
               </div>
           <div class="consent-checks">
             <label class="form__check" for="rq-policy">
@@ -267,7 +272,7 @@
         <p class="subscribe__text">
           Оставьте email — расскажем о новых поступлениях и акциях
         </p>
-        <form class="subscribe__form" action="#" method="post" name="subscribe">
+        <form class="subscribe__form" action="#" method="post" name="subscribe" data-api="subscribe">
           <label class="visually-hidden" for="sub-email">Email</label>
           <input
             class="subscribe__input"
@@ -287,6 +292,10 @@
             <label class="form__check" for="catalog-sub-consent">
               <input id="catalog-sub-consent" type="checkbox" name="privacy" required />
               <span>Даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> <span class="form__req" aria-hidden="true">*</span></span>
+            </label>
+            <label class="form__check" for="catalog-newsletter-consent">
+              <input id="catalog-newsletter-consent" type="checkbox" name="newsletterConsent" required />
+              <span>Согласен(на) получать новости и специальные предложения MOTORA по email <span class="form__req" aria-hidden="true">*</span></span>
             </label>
           </div>
         </form>

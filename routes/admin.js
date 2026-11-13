@@ -8,6 +8,8 @@ const Category = require('../models/Category');
 const Feedback = require('../models/Feedback');
 const UserAction = require('../models/UserAction');
 const Order = require('../models/Order');
+const CarRequest = require('../models/CarRequest');
+const Subscriber = require('../models/Subscriber');
 const { requireAdmin } = require('../middleware/auth');
 const logAction = require('../utils/logAction');
 const router = express.Router();
@@ -34,11 +36,17 @@ function validate(req, res) {
 
 router.get('/stats', async (req, res, next) => {
   try {
-    const [users, products, feedback, pendingFeedback, actions] = await Promise.all([
-      User.countDocuments(), Product.countDocuments({ isActive: true }), Feedback.countDocuments(),
-      Feedback.countDocuments({ status: 'pending' }), UserAction.countDocuments()
+    const [users, products, feedback, pendingFeedback, actions, requests, pendingRequests, subscribers] = await Promise.all([
+      User.countDocuments(),
+      Product.countDocuments({ isActive: true }),
+      Feedback.countDocuments(),
+      Feedback.countDocuments({ status: 'pending' }),
+      UserAction.countDocuments(),
+      CarRequest.countDocuments(),
+      CarRequest.countDocuments({ status: 'pending' }),
+      Subscriber.countDocuments({ status: 'active' })
     ]);
-    res.json({ users, products, feedback, pendingFeedback, actions });
+    res.json({ users, products, feedback, pendingFeedback, actions, requests, pendingRequests, subscribers });
   } catch (error) { next(error); }
 });
 
@@ -139,6 +147,8 @@ router.delete('/users/:id', async (req, res, next) => {
     // Каскадное удаление персональных данных и связанных записей пользователя.
     await Promise.all([
       Feedback.deleteMany({ user: user._id }),
+      CarRequest.updateMany({ user: user._id }, { $set: { user: null } }),
+      Subscriber.updateMany({ user: user._id }, { $set: { user: null } }),
       UserAction.deleteMany({ user: user._id }), Order.deleteMany({ user: user._id })
     ]);
     res.json({ message: 'Пользователь и связанные с ним записи удалены.' });
@@ -160,6 +170,39 @@ router.patch('/feedback/:id/status', async (req, res, next) => {
     if (!feedback) return res.status(404).json({ message: 'Обращение не найдено.' });
     await logAction(req, 'admin_feedback_moderated', { feedbackId: feedback._id, status });
     res.json({ message: 'Статус обращения изменён.' });
+  } catch (error) { next(error); }
+});
+
+
+router.get('/requests', async (req, res, next) => {
+  try {
+    const rows = await CarRequest.find()
+      .populate('user', 'name email')
+      .sort({ createdAt: -1 })
+      .lean();
+    res.json(rows);
+  } catch (error) { next(error); }
+});
+
+router.patch('/requests/:id/status', async (req, res, next) => {
+  try {
+    const status = ['pending', 'approved', 'rejected'].includes(req.body.status) ? req.body.status : null;
+    if (!status) return res.status(400).json({ message: 'Неизвестный статус заявки.' });
+    const carRequest = await CarRequest.findByIdAndUpdate(req.params.id, { status }, { new: true });
+    if (!carRequest) return res.status(404).json({ message: 'Заявка не найдена.' });
+    await logAction(req, 'admin_car_request_moderated', { requestId: carRequest._id, status });
+    res.json({ message: 'Статус заявки изменён.' });
+  } catch (error) { next(error); }
+});
+
+router.get('/subscribers', async (req, res, next) => {
+  try {
+    const rows = await Subscriber.find({ status: 'active' })
+      .select('email createdAt user')
+      .populate('user', 'name')
+      .sort({ createdAt: -1 })
+      .lean();
+    res.json(rows);
   } catch (error) { next(error); }
 });
 

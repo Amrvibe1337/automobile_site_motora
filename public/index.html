@@ -72,10 +72,10 @@
                 </div>
                 <img
                   class="hero__img"
-                  src="/img/cars/index/slide1-bmw.jpg"
+                  src="/img/cars/index/slide1-audi.jpg"
                   data-fallback="/img/cars/car-placeholder.svg"
                   onerror="this.onerror=null;this.src=this.dataset.fallback"
-                  alt="Автомобиль из каталога MOTORA"
+                  alt="Автомобиль audi"
                 />
               </article>
 
@@ -91,10 +91,10 @@
                 </div>
                 <img
                   class="hero__img"
-                  src="/img/cars/index/slide2-audi.jpg"
+                  src="/img/cars/index/slide2-bmw.jpg"
                   data-fallback="/img/cars/car-placeholder.svg"
                   onerror="this.onerror=null;this.src=this.dataset.fallback"
-                  alt="Кроссовер на дороге"
+                  alt="Автомобиль bmw"
                   loading="lazy"
                 />
               </article>
@@ -111,10 +111,10 @@
                 </div>
                 <img
                   class="hero__img"
-                  src="/img/cars/index/slide3-mercedes.jpg"
+                  src="/img/cars/index/slide3-lada.jpg"
                   data-fallback="/img/cars/car-placeholder.svg"
                   onerror="this.onerror=null;this.src=this.dataset.fallback"
-                  alt="Спортивный автомобиль"
+                  alt="Автомобиль lada"
                   loading="lazy"
                 />
               </article>
@@ -163,10 +163,10 @@
             <a href="catalog.html#suvs" class="card__link">
               <img
                 class="card__img"
-                src="/img/cars/index/new_urus.jpg"
+                src="/img/cars/index/new_electro.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Оранжевый кроссовер"
+                alt="Новый электромобиль"
                 loading="lazy"
               />
               <div class="card__row">
@@ -188,7 +188,7 @@
                 src="/img/cars/index/new_merc.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Голубой седан"
+                alt="Новый седан"
                 loading="lazy"
               />
               <div class="card__row">
@@ -207,10 +207,10 @@
             <a href="catalog.html#electric" class="card__link">
               <img
                 class="card__img"
-                src="/img/cars/index/new_electro.jpg"
+                src="/img/cars/index/new_urus.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Белое электрокупе"
+                alt="Новый кроссовер"
                 loading="lazy"
               />
               <div class="card__row">
@@ -234,7 +234,7 @@
             src="/img/cars/index/promo-auto.jpg"
             data-fallback="/img/cars/car-placeholder.svg"
             onerror="this.onerror=null;this.src=this.dataset.fallback"
-            alt="Чёрное купе"
+            alt="Красный внедорожник"
             loading="lazy"
           />
           <div class="promo__text">
@@ -265,7 +265,7 @@
                 src="/img/cars/index/popular-cross.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Красный кроссовер"
+                alt="Черный кроссовер"
                 loading="lazy"
               />
               <div class="card__row">
@@ -287,7 +287,7 @@
                 src="/img/cars/index/auto3mil.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Белое купе"
+                alt="Серебристый bmw"
                 loading="lazy"
               />
               <div class="card__row">
@@ -329,25 +329,25 @@
                 src="/img/cars/index/mob1.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Седан Orion"
+                alt="Черный audi"
               />
               <img
                 src="/img/cars/index/mob2.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Кроссовер Terra"
+                alt="Синий внедорожник"
               />
               <img
                 src="/img/cars/index/mob3.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Электрокупе Volt"
+                alt="Белая лада"
               />
               <img
                 src="/img/cars/index/mob4.jpg"
                 data-fallback="/img/cars/car-placeholder.svg"
                 onerror="this.onerror=null;this.src=this.dataset.fallback"
-                alt="Электрокроссовер Volt"
+                alt="Черный седан"
               />
             </div>
           </div>
@@ -361,7 +361,7 @@
           Подпишитесь на новости салона и получайте спецпредложения
         </h2>
         <p class="subscribe__text">Оставьте email — расскажем о новых поступлениях и акциях</p>
-        <form class="subscribe__form" action="#" method="post" name="subscribe">
+        <form class="subscribe__form" action="#" method="post" name="subscribe" data-api="subscribe">
           <label class="visually-hidden" for="sub-email">Email</label>
           <input
             class="subscribe__input"
@@ -381,6 +381,10 @@
             <label class="form__check" for="home-sub-consent">
               <input id="home-sub-consent" type="checkbox" name="privacy" required />
               <span>Даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> <span class="form__req" aria-hidden="true">*</span></span>
+            </label>
+            <label class="form__check" for="home-newsletter-consent">
+              <input id="home-newsletter-consent" type="checkbox" name="newsletterConsent" required />
+              <span>Согласен(на) получать новости и специальные предложения MOTORA по email <span class="form__req" aria-hidden="true">*</span></span>
             </label>
           </div>
         </form>

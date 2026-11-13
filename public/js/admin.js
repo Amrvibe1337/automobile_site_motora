@@ -27,7 +27,7 @@
 
   async function loadStats() {
     const stats = await api.request('/api/admin/stats');
-    const labels = [['users', 'Пользователи'], ['products', 'Автомобили'], ['feedback', 'Обращения'], ['pendingFeedback', 'Ожидают модерации'], ['actions', 'Действий в журнале']];
+    const labels = [['users', 'Пользователи'], ['products', 'Автомобили'], ['feedback', 'Обращения'], ['pendingFeedback', 'Ожидают модерации обращений'], ['requests', 'Заявки на автомобили'], ['pendingRequests', 'Заявки на рассмотрении'], ['subscribers', 'Подписчики'], ['actions', 'Действий в журнале']];
     $('#admin-stats').innerHTML = labels.map(([key, label]) => `<div class="account-panel admin-stat"><strong>${Number(stats[key])}</strong><span>${label}</span></div>`).join('');
   }
 
@@ -57,6 +57,36 @@
       <p>${esc(item.message)}</p><small>${date(item.createdAt)}</small>
       <div class="inline-actions feedback-actions"><button class="button button_small" type="button" data-feedback-status="approved" data-feedback-id="${esc(item._id)}">Одобрить</button><button class="button button_light button_small" type="button" data-feedback-status="rejected" data-feedback-id="${esc(item._id)}">Отклонить</button><button class="button button_light button_small" type="button" data-feedback-status="pending" data-feedback-id="${esc(item._id)}">Вернуть на рассмотрение</button></div>
     </article>`).join('') : '<p>Обращений пока нет.</p>';
+  }
+
+  async function loadRequests() {
+    const rows = await api.request('/api/admin/requests');
+    const statusLabel = status => status === 'approved' ? 'Одобрена' : status === 'rejected' ? 'Отклонена' : 'На рассмотрении';
+    $('#admin-requests').innerHTML = rows.length ? rows.map(item => `<article class="data-item">
+      <div class="data-item__head">
+        <b>${esc(item.productName)} — ${esc(item.name)}</b>
+        <span class="status-pill status-${esc(item.status)}">${statusLabel(item.status)}</span>
+      </div>
+      <p><b>Телефон:</b> <a href="tel:${esc(item.phone)}">${esc(item.phone)}</a></p>
+      <p><b>Цена на момент заявки:</b> ${api.formatPrice(item.productPrice)}</p>
+      ${item.message ? `<p><b>Комментарий:</b> ${esc(item.message)}</p>` : ''}
+      ${item.user?.email ? `<small>Аккаунт: ${esc(item.user.name || '')} (${esc(item.user.email)})</small><br>` : ''}
+      <small>Получена: ${date(item.createdAt)}</small>
+      <div class="inline-actions feedback-actions">
+        <button class="button button_small" type="button" data-request-status="approved" data-request-id="${esc(item._id)}">Одобрить</button>
+        <button class="button button_light button_small" type="button" data-request-status="rejected" data-request-id="${esc(item._id)}">Отклонить</button>
+        <button class="button button_light button_small" type="button" data-request-status="pending" data-request-id="${esc(item._id)}">На рассмотрение</button>
+      </div>
+    </article>`).join('') : '<p>Заявок на автомобили пока нет.</p>';
+  }
+
+  async function loadSubscribers() {
+    const rows = await api.request('/api/admin/subscribers');
+    $('#admin-subscribers').innerHTML = rows.length ? rows.map(item => `<tr>
+      <td><a href="mailto:${esc(item.email)}">${esc(item.email)}</a></td>
+      <td>${item.user ? esc(item.user.name || 'Зарегистрированный пользователь') : 'Гость'}</td>
+      <td>${date(item.createdAt)}</td>
+    </tr>`).join('') : '<tr><td colspan="3">Подписчиков пока нет.</td></tr>';
   }
 
   function clearProductForm() {
@@ -137,12 +167,22 @@
         await Promise.all([loadFeedback(), loadStats()]);
       } catch (error) { window.alert(error.message); }
     }
+
+    const requestStatusButton = event.target.closest('[data-request-status]');
+    if (requestStatusButton) {
+      try {
+        await api.request(`/api/admin/requests/${requestStatusButton.dataset.requestId}/status`, {
+          method: 'PATCH', body: JSON.stringify({ status: requestStatusButton.dataset.requestStatus })
+        });
+        await Promise.all([loadRequests(), loadStats()]);
+      } catch (error) { window.alert(error.message); }
+    }
   });
 
   (async () => {
     try {
       if (!await checkAccess()) return;
-      await Promise.all([loadCategories(), loadStats(), loadProducts(), loadUsers(), loadFeedback()]);
+      await Promise.all([loadCategories(), loadStats(), loadProducts(), loadUsers(), loadFeedback(), loadRequests(), loadSubscribers()]);
     } catch (error) {
       if (error.status === 401 || error.status === 403) window.location.href = 'profile.html';
       else window.alert(error.message);

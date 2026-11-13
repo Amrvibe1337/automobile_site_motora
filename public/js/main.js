@@ -264,6 +264,7 @@ const messages = {
 
 $$('form[action="#"]').forEach((f) =>
   f.addEventListener('submit', (e) => {
+    if (f.matches('form[data-api]')) return;
     e.preventDefault();
 
     if (f.name === 'calc') return;

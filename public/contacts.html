@@ -302,7 +302,7 @@
         <p class="subscribe__text">
           Оставьте email — расскажем о новых поступлениях и акциях
         </p>
-        <form class="subscribe__form" action="#" method="post" name="subscribe">
+        <form class="subscribe__form" action="#" method="post" name="subscribe" data-api="subscribe">
           <label class="visually-hidden" for="sub-email">Email</label>
           <input
             class="subscribe__input"
@@ -322,6 +322,10 @@
             <label class="form__check" for="contacts-sub-consent">
               <input id="contacts-sub-consent" type="checkbox" name="privacy" required />
               <span>Даю <a href="personal-data-consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a> <span class="form__req" aria-hidden="true">*</span></span>
+            </label>
+            <label class="form__check" for="contacts-newsletter-consent">
+              <input id="contacts-newsletter-consent" type="checkbox" name="newsletterConsent" required />
+              <span>Согласен(на) получать новости и специальные предложения MOTORA по email <span class="form__req" aria-hidden="true">*</span></span>
             </label>
           </div>
         </form>

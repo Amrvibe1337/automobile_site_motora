@@ -40,6 +40,8 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/feedback', require('./routes/feedback'));
+app.use('/api/requests', require('./routes/requests'));
+app.use('/api/subscribers', require('./routes/subscribers'));
 app.use('/api/account', require('./routes/account'));
 app.use('/api/admin', require('./routes/admin'));
 

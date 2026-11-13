@@ -42,7 +42,7 @@
     status.classList.toggle('form__status_error', isError);
   }
 
-  // API формы: регистрация, авторизация и обратная связь.
+  // API формы: регистрация, авторизация, обратная связь, заявки на автомобили и подписка.
   document.addEventListener('submit', async event => {
     const form = event.target.closest('form[data-api]');
     if (!form) return;
@@ -54,7 +54,9 @@
     const type = form.dataset.api;
     const endpoint = type === 'register' ? '/api/auth/register'
       : type === 'login' ? '/api/auth/login'
-      : type === 'feedback' ? '/api/feedback' : null;
+      : type === 'feedback' ? '/api/feedback'
+      : type === 'vehicle-request' ? '/api/requests'
+      : type === 'subscribe' ? '/api/subscribers' : null;
     if (!endpoint) return;
 
     const submit = $('button[type="submit"]', form);
@@ -64,14 +66,20 @@
         values.terms = Boolean(values.terms);
         values.privacy = Boolean(values.privacy);
       }
-      if (type === 'feedback') {
+      if (type === 'feedback' || type === 'vehicle-request' || type === 'subscribe') {
         values.terms = Boolean(values.terms);
         values.privacy = Boolean(values.privacy);
+        if (type === 'subscribe') values.newsletterConsent = Boolean(values.newsletterConsent);
       }
       if (type === 'login') values.remember = Boolean(values.remember);
       const result = await request(endpoint, { method: 'POST', body: JSON.stringify(values) });
       showStatus(form, result.message || 'Готово.');
+      const selectedProductId = type === 'vehicle-request' ? values.productId : '';
       form.reset();
+      if (type === 'vehicle-request' && selectedProductId) {
+        const productIdField = form.elements.namedItem('productId');
+        if (productIdField) productIdField.value = selectedProductId;
+      }
       if (type === 'register' || type === 'login') {
         window.setTimeout(() => { window.location.href = 'profile.html'; }, 500);
       }
@@ -290,6 +298,8 @@
       const description = $('#d-description');
       if (description) description.textContent = card.dataset.description || 'Описание пока не добавлено.';
       $('#d-model').value = card.dataset.name;
+      const productIdInput = $('#d-product-id');
+      if (productIdInput) productIdInput.value = id || '';
       dialog.showModal();
     });
 
