@@ -6,21 +6,21 @@ const connectDB = require('../config/db');
 const Product = require('../models/Product');
 
 const IMAGE_BY_NAME = {
-  'Rolls-Royce Phantom': '/img/cars/rolls.jpg',
-  'Mercedes-Maybach S 680': '/img/cars/maybach.jpg',
-  'Aurus Senat': '/img/cars/aurus.jpg',
-  'BMW X6': '/img/cars/bmw.jpg',
-  'Mercedes-Benz GLE': '/img/cars/mercgle.jpg',
-  'Porsche Cayenne': '/img/cars/porshecayenne.jpg',
-  'Bentley Continental GT': '/img/cars/bentley.jpg',
-  'Audi A5': '/img/cars/audia5.jpg',
-  'BMW M4': '/img/cars/bmwcoupe.jpg',
-  'MINI Cooper S': '/img/cars/minicooper.jpg',
-  'Mercedes-AMG A35 4MATIC': '/img/cars/merc-a-class.jpg',
-  'Audi RS 3': '/img/cars/audirs3.jpg',
-  'Zeekr 001': '/img/cars/zeekr.jpg',
-  'Tesla Model X': '/img/cars/teslaX.jpg',
-  'Lixiang L9': '/img/cars/lixiangL9.jpg'
+  'Rolls-Royce Phantom': 'img/cars/rolls.jpg',
+  'Mercedes-Maybach S 680': 'img/cars/maybach.jpg',
+  'Aurus Senat': 'img/cars/aurus.jpg',
+  'BMW X6': 'img/cars/bmw.jpg',
+  'Mercedes-Benz GLE': 'img/cars/mercgle.jpg',
+  'Porsche Cayenne': 'img/cars/porshecayenne.jpg',
+  'Bentley Continental GT': 'img/cars/bentley.jpg',
+  'Audi A5': 'img/cars/audia5.jpg',
+  'BMW M4': 'img/cars/bmwcoupe.jpg',
+  'MINI Cooper S': 'img/cars/minicooper.jpg',
+  'Mercedes-AMG A35 4MATIC': 'img/cars/merc-a-class.jpg',
+  'Audi RS 3': 'img/cars/audirs3.jpg',
+  'Zeekr 001': 'img/cars/zeekr.jpg',
+  'Tesla Model X': 'img/cars/teslaX.jpg',
+  'Lixiang L9': 'img/cars/lixiangL9.jpg'
 };
 
 function assertLocalAssetsExist() {

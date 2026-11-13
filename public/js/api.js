@@ -151,7 +151,7 @@
     let searchHistoryTimer = null;
 
     function productCard(product) {
-      const image = product.image || '/img/cars/car-placeholder.svg';
+      const image = product.image || 'img/cars/car-placeholder.svg';
       return `<article class="product"
         data-id="${escapeHtml(product._id)}"
         data-cat="${escapeHtml(product.categorySlug)}"
@@ -162,7 +162,7 @@
         data-acc="${escapeHtml(product.acceleration)}"
         data-description="${escapeHtml(product.description || '')}">
         <div class="product__media">
-          <img class="product__img" src="${escapeHtml(image)}" data-fallback="/img/cars/car-placeholder.svg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="${escapeHtml(product.name)}" loading="lazy" />
+          <img class="product__img" src="${escapeHtml(image)}" data-fallback="img/cars/car-placeholder.svg" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="${escapeHtml(product.name)}" loading="lazy" />
           <button class="product__cart" type="button" data-cart aria-label="Добавить ${escapeHtml(product.name)} в корзину" title="Добавить в корзину"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></button>
         </div>
         <h3 class="product__title">${escapeHtml(product.name)}</h3>

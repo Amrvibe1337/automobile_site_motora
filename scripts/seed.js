@@ -25,7 +25,7 @@ const cars = [
     engine: 'Бензин 6,7',
     power: '571 л.с.',
     acceleration: '5,2 с',
-    image: '/img/cars/rolls.jpg',
+    image: 'img/cars/rolls.jpg',
     description: 'Rolls-Royce Phantom - эталон мировой роскоши с фирменной бесшумной плавностью хода, богатейшей отделкой ручной работы и звездным небом на потолке'
   },
   {
@@ -35,7 +35,7 @@ const cars = [
     engine: 'Бензин 6.0',
     power: '612 л.с.',
     acceleration: '4,4 с',
-    image: '/img/cars/maybach.jpg',
+    image: 'img/cars/maybach.jpg',
     description: 'Mercedes-Maybach S 680 4MATIC - вершина комфорта для пассажиров сзади: раздельные кресла с массажем, премиальная акустика и максимум пространства'
   },
   {
@@ -45,7 +45,7 @@ const cars = [
     engine: 'Бензин 4.4',
     power: '598 л.с.',
     acceleration: '6 с',
-    image: '/img/cars/aurus.jpg',
+    image: 'img/cars/aurus.jpg',
     description: 'Aurus Senat - российский представительский люксовый седан с классическим монументальным дизайном и мощным силовым агрегатом'
   },
   {
@@ -55,7 +55,7 @@ const cars = [
     engine: 'Бензин 4.4',
     power: '407 л.с.',
     acceleration: '4,6 с',
-    image: '/img/cars/bmw.jpg',
+    image: 'img/cars/bmw.jpg',
     description: 'BMW X6 — эталон динамики и управляемости с богатым выбором двигателей и современным цифровым салоном.'
   },
   {
@@ -65,7 +65,7 @@ const cars = [
     engine: 'Дизель 3.0',
     power: '435 л.с.',
     acceleration: '5 с',
-    image: '/img/cars/mercgle.jpg',
+    image: 'img/cars/mercgle.jpg',
     description: 'Mercedes-Benz GLE — машина с акцентом на максимальный комфорт, плавность хода и роскошные материалы отделки.'
   },
   {
@@ -75,7 +75,7 @@ const cars = [
     engine: 'Бензин 3.0',
     power: '353 л.с.',
     acceleration: '6,2 с',
-    image: '/img/cars/porshecayenne.jpg',
+    image: 'img/cars/porshecayenne.jpg',
     description: 'Porsche Cayenne — спортивный характер на каждый день с отточенной управляемостью.'
   },
   {
@@ -85,7 +85,7 @@ const cars = [
     engine: 'Бензин 4.0 Biturbo',
     power: '542 л.с.',
     acceleration: '4,0 с',
-    image: '/img/cars/bentley.jpg',
+    image: 'img/cars/bentley.jpg',
     description: 'Bentley Continental GT — автомобиль класса гран-туризмо с мощными двигателями внутреннего сгорания и роскошной отделкой'
   },
   {
@@ -95,7 +95,7 @@ const cars = [
     engine: 'Бензин 2.0',
     power: '260л.с.',
     acceleration: '6,0 с',
-    image: '/img/cars/audia5.jpg',
+    image: 'img/cars/audia5.jpg',
     description: 'Audi A5 - стильные двухдверные автомобили с фирменной системой полного привода и современным цифровым кокпитом'
   },
   {
@@ -105,7 +105,7 @@ const cars = [
     engine: 'Бензин 3.0',
     power: '510 л.с.',
     acceleration: '3,5 с',
-    image: '/img/cars/bmwcoupe.jpg',
+    image: 'img/cars/bmwcoupe.jpg',
     description: 'BMW M4 Coupe - спортивно-ориентированные премиум-купе с острой управляемостью и передовой электроникой'
   },
   {
@@ -115,7 +115,7 @@ const cars = [
     engine: 'Бензин 2.0',
     power: '200 л.с.',
     acceleration: '6,8 с',
-    image: '/img/cars/minicooper.jpg',
+    image: 'img/cars/minicooper.jpg',
     description: 'MINI Cooper S - культовый британский премиум-хэтчбек в ретро-футуристичном стиле.'
   },
   {
@@ -125,7 +125,7 @@ const cars = [
     engine: 'Бензин 2.0',
     power: '306 л.с.',
     acceleration: '4,7 с',
-    image: '/img/cars/merc-a-class.jpg',
+    image: 'img/cars/merc-a-class.jpg',
     description: 'Mercedes-Benz A-Класс (A-Class Hatchback) — воплощение элегантности и передовой цифровой среды (система MBUX с огромными сдвоенными экранами). Предлагает богатое оснащение, комфортную подвеску и премиальные варианты отделки интерьера с атмосферной подсветкой на 64 цвета.'
   },
   {
@@ -135,7 +135,7 @@ const cars = [
     engine: 'Бензин 2.5',
     power: '400 л.с.',
     acceleration: '4,1 с',
-    image: '/img/cars/audirs3.jpg',
+    image: 'img/cars/audirs3.jpg',
     description: 'Audi RS 3 - эталонный представитель немецкого премиум-сегмента в компактном классе.'
   },
   {
@@ -145,7 +145,7 @@ const cars = [
     engine: 'Электро',
     power: '530 л.с.',
     acceleration: '3,0 с',
-    image: '/img/cars/zeekr.jpg',
+    image: 'img/cars/zeekr.jpg',
     description: 'Zeekr - суббренд Geely, предлагающий спортивную динамику, футуристичный дизайн, передовые батареи и богато отделанные материалы интерьера.'
   },
   {
@@ -155,7 +155,7 @@ const cars = [
     engine: 'Электрический',
     power: '670 л.с.',
     acceleration: '3,9 с',
-    image: '/img/cars/teslaX.jpg',
+    image: 'img/cars/teslaX.jpg',
     description: 'Tesla Model X - классика чистых электромобилей с передовым автопилотом, высокой динамикой и развитой экосистемой'
   },
   {
@@ -165,7 +165,7 @@ const cars = [
     engine: 'гибрид (REEV)',
     power: '451 л.с.',
     acceleration: '5,3 с',
-    image: '/img/cars/lixiangL9.jpg',
+    image: 'img/cars/lixiangL9.jpg',
     description: 'Крупный последовательный гибрид (REEV) с богатым оснащением салона, продвинутым экраном, пневмоподвеской и высоким уровнем комфорта'
   }
 ];

@@ -16,7 +16,7 @@
     const items = data.items || [];
     root.innerHTML = items.length ? items.map(({ product, quantity, lineTotal }) => `
       <article class="cart-item" data-cart-item="${api.escapeHtml(product._id)}">
-        <img class="cart-item__image" src="${api.escapeHtml(product.image || '/img/cars/car-placeholder.svg')}" alt="${api.escapeHtml(product.name)}" onerror="this.onerror=null;this.src='/img/cars/car-placeholder.svg'" />
+        <img class="cart-item__image" src="${api.escapeHtml(product.image || 'img/cars/car-placeholder.svg')}" alt="${api.escapeHtml(product.name)}" onerror="this.onerror=null;this.src='img/cars/car-placeholder.svg'" />
         <div class="cart-item__details">
           <h3>${api.escapeHtml(product.name)}</h3>
           <p class="cart-item__price">${api.formatPrice(product.price)} за автомобиль</p>
