@@ -5,5 +5,5 @@ meta:
     version: 26
 
 run:
-  command: npm start
+  command: npm run seed && npm start
   containerPort: 3000
